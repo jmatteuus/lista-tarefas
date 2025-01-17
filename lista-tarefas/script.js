@@ -1,10 +1,11 @@
+const input = document.querySelector('#taskInput');
+
 document.querySelector('#addTaskButton').onclick = function() {
-    const tarefas = document.querySelector('#taskInput').value
-    const lista = document.querySelector('.task-list');
+    const task = input.value;
 
-    if (tarefas === ''){
-        alert('Adicione alguma tarefa');
+    if (task.trim() !== '') {
+        const lista = document.querySelector('.task-list');
+        lista.innerHTML += `<li>${task}</li>`;
+        input.value = ''; 
     }
-
-    lista.innerHTML += `<li>${tarefas}</li>`;
 }
