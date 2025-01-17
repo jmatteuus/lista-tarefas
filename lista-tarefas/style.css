@@ -52,20 +52,18 @@ button:hover {
 .task-list {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    margin: 0;
 }
 
 .task-list li {
+    display: block; /* Ocupa uma linha inteira */
     background-color: #f9f9f9;
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+    padding: 10px; /* Área clicável */
     border: 1px solid #ddd;
     border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .task-list li span {
