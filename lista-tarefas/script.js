@@ -3,12 +3,24 @@ function recuperarTasks() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     
     tasksList.innerHTML = '';
-    
-    tasks.forEach(task => {
+
+    tasks.forEach((task, index) => {
         const li = document.createElement('li');
         li.textContent = task;
+
+        li.onclick = function() {
+            removerTask(index);
+        };
+
         tasksList.appendChild(li);
     });
+}
+
+function removerTask(index) {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasks.splice(index, 1);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    recuperarTasks();
 }
 
 const input = document.querySelector('#taskInput');
